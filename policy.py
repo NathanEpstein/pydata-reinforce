@@ -11,7 +11,7 @@ class PolicyParser:
     best_policy = np.zeros(self.state_count)
     state_values = np.array(rewards)
 
-    ITERATIONS = 100
+    ITERATIONS = 500
     for i in range(ITERATIONS):
       print("iteration: {0} / {1}".format(i + 1, ITERATIONS))
 
