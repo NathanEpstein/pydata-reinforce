@@ -28,7 +28,7 @@ def perform_agent_search(agent):
 # note that dimensions can be inferred from observations if desired
 # but it is frequently the case that these are known for the application
 DIMENSIONS = { 'state_count': 201, 'action_count': 100 }
-observations = binary_search.observations(500000) + random_search.observations(500000)
+observations = binary_search.observations(500000) + random_search.observations(10000)
 mark = MarkovAgent(observations, DIMENSIONS)
 mark.learn()
 
