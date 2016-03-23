@@ -68,5 +68,5 @@ def trap_state():
   )
   return {
     'state_transitions': transitions,
-    'reward': 1
+    'reward': 100
   }
