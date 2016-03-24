@@ -12,16 +12,16 @@ def observation():
   transitions = []
 
   # create random values and choose the target at random
-  sorted_array = random_sorted_ints(100)
+  sorted_array = random_sorted_ints(25)
   target_int = random.choice(sorted_array)
 
   # initialize the search
-  initial_location = random.choice(range(100))
+  initial_location = random.choice(range(25))
   state = parse_state(sorted_array, initial_location, target_int)
 
   # randomly choose locations until we find the target int
-  while (state != 200):
-    location = random.choice(range(100))
+  while (state != 50):
+    location = random.choice(range(25))
     state_ = parse_state(sorted_array, location, target_int)
 
     transitions.append({
@@ -34,7 +34,7 @@ def observation():
 
   #return observation
   if (len(transitions) == 0):
-    transitions.append({ 'state': 200, 'action': 0, 'state_': 200 })
+    transitions.append({ 'state': 50, 'action': 0, 'state_': 50 })
   return {
     'state_transitions': transitions,
     'reward': -len(transitions)
@@ -44,9 +44,9 @@ def parse_state(random_ints, current_location, target_int):
   if (random_ints[current_location] < target_int):
     return current_location
   if (random_ints[current_location] > target_int):
-    return current_location + 100
+    return (current_location + 25)
   if (random_ints[current_location] == target_int):
-    return 200
+    return 50
 
 def random_sorted_ints(length):
   random_ints = random.sample(range(0, 1000), length)
@@ -55,8 +55,8 @@ def random_sorted_ints(length):
 
 def trap_state():
   transitions = map(
-    lambda i: { 'state': 200, 'action': i, 'state_': 200 },
-    range(100)
+    lambda i: { 'state': 50, 'action': i, 'state_': 50 },
+    range(25)
   )
   return {
     'state_transitions': transitions,
