@@ -14,7 +14,8 @@ class PolicyParser:
     GAMMA = 0.9
     ITERATIONS = 200
     for i in range(ITERATIONS):
-      print("iteration: {0} / {1}".format(i + 1, ITERATIONS))
+      if i % 10 == 0:
+        print "iteration: {0} / {1}".format(i + 1, ITERATIONS)
 
       for state in range(0, self.state_count):
         state_value = -float('Inf')
