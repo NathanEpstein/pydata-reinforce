@@ -9,13 +9,12 @@ class PolicyParser:
     print('COMPUTING POLICY')
 
     best_policy = np.zeros(self.state_count)
-    state_values = np.array(rewards)
+    state_values = np.zeros(self.state_count)
 
-    ITERATIONS = 500
+    GAMMA = 0.9
+    ITERATIONS = 200
     for i in range(ITERATIONS):
       print("iteration: {0} / {1}".format(i + 1, ITERATIONS))
-
-      state_values_ = np.copy(state_values)
 
       for state in range(0, self.state_count):
         state_value = -float('Inf')
@@ -24,7 +23,7 @@ class PolicyParser:
           action_value = 0
 
           for state_ in range(0, self.state_count):
-            action_value += P[state][action][state_] * state_values[state_]
+            action_value += (P[state][action][state_] * state_values[state_] * GAMMA)
 
           if (action_value >= state_value):
             state_value = action_value
