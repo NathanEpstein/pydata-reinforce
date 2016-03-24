@@ -27,9 +27,9 @@ def simulate_agent_search(agent, array_length):
 # create an agent trained on data
 ARRAY_LENGTH = 25
 DIMENSIONS = { 'state_count': (ARRAY_LENGTH * 2 + 1), 'action_count': ARRAY_LENGTH }
-observations = search_data.observations(1000, ARRAY_LENGTH)
+observations = search_data.observations(50000, ARRAY_LENGTH)
 mark = MarkovAgent(observations, DIMENSIONS)
 mark.learn()
 
 # view search performance of our agent
-simulate_agent_search(mark, DIMENSIONS['action_count'])
+simulate_agent_search(mark, ARRAY_LENGTH)

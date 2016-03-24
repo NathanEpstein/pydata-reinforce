@@ -16,11 +16,13 @@ def observation(array_length):
   target_int = random.choice(sorted_array)
 
   # initialize the search
-  search_type = random.choice(['binary', 'random'])
+  search_type = random.choice(['binary', 'linear', 'random'])
   if search_type == 'binary':
     search = BinarySearch(sorted_array, target_int)
   if search_type == 'random':
     search = RandomSearch(sorted_array, target_int)
+  if search_type == 'linear':
+    search = LinearSearch(sorted_array, target_int)
 
   state = parse_state(sorted_array, search.location, target_int)
 
@@ -81,6 +83,19 @@ class BinarySearch:
     else:
       self.b = self.location
     self.location = (self.a + self.b) / 2
+    return self.location
+
+class LinearSearch:
+  def __init__(self, array, target):
+    self.location = random.choice(range(len(array)))
+    self.array = array
+    self.target = target
+
+  def update(self):
+    if self.array[self.location] < self.target:
+      self.location += 1
+    else:
+      self.location -= 1
     return self.location
 
 class RandomSearch:
