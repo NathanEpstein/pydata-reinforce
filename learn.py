@@ -18,4 +18,5 @@ class MarkovAgent:
     P = self.transition_parser.transition_probabilities()
     self.policy = self.policy_parser.policy(P, R)
     # transform policy from int encoding to string
+    # i.e. have a separate method to access the string dict version of the policy...
 
