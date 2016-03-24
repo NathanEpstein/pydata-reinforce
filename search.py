@@ -1,3 +1,6 @@
+# new encoding breaks this and search_data too
+# state parsed in these files is 'string' state not encoded state
+
 from learn import MarkovAgent
 import search_data
 import random
@@ -19,7 +22,9 @@ def simulate_agent_search(agent, array_length):
       location,
       target_int
     )
-    location = int(agent.policy[state])
+
+    parsed_state = agent.state_action_encoder.state_to_int[state]
+    location = int(agent.policy[parsed_state])
     state = search_data.parse_state(sorted_array, location, target_int)
   print "Found {0} at index {1}!".format(target_int, location)
 
@@ -27,8 +32,9 @@ def simulate_agent_search(agent, array_length):
 # create an agent trained on data
 ARRAY_LENGTH = 25
 DIMENSIONS = { 'state_count': (ARRAY_LENGTH * 2 + 1), 'action_count': ARRAY_LENGTH }
-observations = search_data.observations(50000, ARRAY_LENGTH)
-mark = MarkovAgent(observations, DIMENSIONS)
+observations = search_data.observations(10, ARRAY_LENGTH)
+
+mark = MarkovAgent(observations)
 mark.learn()
 
 # view search performance of our agent

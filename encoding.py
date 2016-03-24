@@ -9,6 +9,13 @@ class StateActionEncoder:
       'action_count': len(self.int_to_action)
     }
 
+  def observations_to_int(self):
+    for observation in self.observations:
+      for transition in observation['state_transitions']:
+        transition['state'] = self.state_to_int[transition['state']]
+        transition['state_'] = self.state_to_int[transition['state_']]
+        transition['action'] = self.action_to_int[transition['action']]
+
   def _parse_states_and_actions(self):
     state_dict, action_dict = {}, {}
     state_array, action_array = [], []
