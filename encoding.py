@@ -16,6 +16,15 @@ class StateActionEncoder:
         transition['state_'] = self.state_to_int[transition['state_']]
         transition['action'] = self.action_to_int[transition['action']]
 
+  def parse_encoded_policy(self, encoded_policy):
+    policy = {}
+    for index, encoded_action in enumerate(encoded_policy):
+      state = self.int_to_state[index]
+      action = self.int_to_action[int(encoded_action)]
+      policy[state] = action
+
+    return policy
+
   def _parse_states_and_actions(self):
     state_dict, action_dict = {}, {}
     state_array, action_array = [], []

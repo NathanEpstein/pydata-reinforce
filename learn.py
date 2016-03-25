@@ -18,6 +18,8 @@ class MarkovAgent:
   def learn(self):
     R = self.reward_parser.rewards()
     P = self.transition_parser.transition_probabilities()
-    self.policy = self.policy_parser.policy(P, R)
-    # have a separate method to access the string dict version of the policy...
+
+    # learn int-encoded policy and convert to readable dictionary
+    encoded_policy = self.policy_parser.policy(P, R)
+    self.policy = self.state_action_encoder.parse_encoded_policy(encoded_policy)
 

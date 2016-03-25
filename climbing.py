@@ -1,12 +1,5 @@
 from learn import MarkovAgent
 
-# note that dimensions can be inferred from observations if desired
-# but it is frequently the case that these are known for the application
-DIMENSIONS = {
-  'state_count': 5,
-  'action_count': 2
-}
-
 observations = [
   { 'state_transitions': [
       { 'state': 'low', 'action': 'climb', 'state_': 'mid' },
@@ -50,5 +43,3 @@ mark.learn()
 
 # mark correctly learns that the optimal strategy is to always go up
 print(mark.policy)
-print mark.state_action_encoder.state_to_int
-print mark.state_action_encoder.action_to_int
