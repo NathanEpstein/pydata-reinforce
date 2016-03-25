@@ -89,7 +89,7 @@ class SearchSimulation:
       return self.observation(array_length)
     else:
       return {
-        'reward': len(transitions),
+        'reward': -len(transitions),
         'state_transitions': transitions
       }
 
