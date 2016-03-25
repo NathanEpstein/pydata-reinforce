@@ -100,15 +100,6 @@ class SearchSimulation:
     observations.append(self._trap_state(array_length))
     return observations
 
-  def simulate_search(self, array_length, search):
-    observation = self.observation(array_length, search)
-    for location in search.path:
-      print "Found {0} at index {1}. Looking for {2}".format(
-        search.array[location],
-        location,
-        search.target
-      )
-
   def _trap_state(self, array_length):
     state_transitions = []
     for i in range(array_length):
