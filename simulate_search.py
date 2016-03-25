@@ -9,7 +9,7 @@ class AISearch(Search):
   def update_location(self):
     self.location = mark.policy[self.state]
 
-def simulate_search():
+def print_ai_search():
   sorted_array = simulator._random_sorted_array(25)
   target_int = random.choice(sorted_array)
   search = AISearch(sorted_array, target_int)
@@ -20,3 +20,5 @@ def simulate_search():
       location,
       search.target
     )
+
+print_ai_search()
