@@ -86,7 +86,7 @@ class SearchSimulation:
       })
 
     if len(transitions) == 0:
-      return self.observation(array_length, supplied_search = search)
+      return self.observation(array_length)
     else:
       return {
         'reward': -len(transitions),
