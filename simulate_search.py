@@ -22,28 +22,27 @@ def print_ai_search():
       search.target
     )
 
-print_ai_search()
-# Found 814 at index 15. Looking for 30
-# Found 25 at index 1. Looking for 30
-# Found 650 at index 12. Looking for 30
-# Found 97 at index 4. Looking for 30
-# Found 30 at index 2. Looking for 30
+print_ai_search() #more iterations seems to have room to improve performance
 # >>> print_ai_search()
-# Found 532 at index 11. Looking for 999
-# Found 795 at index 18. Looking for 999
-# Found 999 at index 19. Looking for 999
+# Found 344 at index 9. Looking for 733
+# Found 851 at index 18. Looking for 733
+# Found 676 at index 13. Looking for 733
+# Found 772 at index 17. Looking for 733
+# Found 749 at index 15. Looking for 733
+# Found 733 at index 14. Looking for 733
 # >>> print_ai_search()
-# Found 129 at index 4. Looking for 5
-# Found 28 at index 1. Looking for 5
-# Found 5 at index 0. Looking for 5
+# Found 490 at index 11. Looking for 908
+# Found 866 at index 18. Looking for 908
+# Found 908 at index 19. Looking for 908
 # >>> print_ai_search()
-# Found 491 at index 9. Looking for 351
-# Found 64 at index 1. Looking for 351
-# Found 326 at index 6. Looking for 351
-# Found 407 at index 8. Looking for 351
-# Found 351 at index 7. Looking for 351
+# Found 414 at index 9. Looking for 665
+# Found 928 at index 18. Looking for 665
+# Found 580 at index 13. Looking for 665
+# Found 912 at index 17. Looking for 665
+# Found 700 at index 15. Looking for 665
+# Found 665 at index 14. Looking for 665
 # >>> print_ai_search()
-# Found 870 at index 14. Looking for 899
-# Found 972 at index 19. Looking for 899
-# Found 905 at index 16. Looking for 899
-# Found 899 at index 15. Looking for 899
+# Found 358 at index 8. Looking for 328
+# Found 45 at index 1. Looking for 328
+# Found 193 at index 5. Looking for 328
+# Found 328 at index 7. Looking for 328
