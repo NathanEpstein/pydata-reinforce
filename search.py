@@ -86,17 +86,17 @@ class SearchSimulation:
       })
 
     if len(transitions) == 0:
-      return self.observation(array_length)
+      return self.observation(array_length, supplied_search = search)
     else:
       return {
         'reward': -len(transitions),
         'state_transitions': transitions
       }
 
-  def observations(self, n, array_length, supplied_search = None):
+  def observations(self, n, array_length):
     observations = []
     for i in range(n):
-      observations.append(self.observation(array_length, supplied_search))
+      observations.append(self.observation(array_length))
     observations.append(self._trap_state(array_length))
     return observations
 
