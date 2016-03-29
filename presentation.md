@@ -112,6 +112,12 @@ For each state, update V(s) = R(s) + max_a∈A SUM_s'∈S(P(s, a, s') * V(s'))
 
 --
 
+### Following Along
+
+If you want to look at the code examples on your own, you can find all code for this presentation at https://github.com/NathanEpstein/pydata-reinforce
+
+--
+
 ### Reward Parser
 
 ```python
@@ -339,8 +345,9 @@ print(mark.policy)
 
 ### Search
 
-- Given an array of sorted numbers, find a target value.
-- Do this as quickly as possible.
+- Given an array of sorted numbers, find a target value as quickly as possible.
+
+- Our random numbers will be distributed exponentially. Can we use this information to do better than binary search?
 
 --
 
@@ -350,7 +357,18 @@ print(mark.policy)
 - Reward for each search should be -1 * #steps to find target.
 - Append these with trap states with positive rewards.
 
-Note: You can find the search code at https://github.com/NathanEpstein/pydata-reinforce/blob/master/search.py
+--
+
+### "Feature Selection"
+
+Our model can only learn what we show it (i.e. what's encoded in state). Our state will include:
+
+- current location
+- whether current location is above or below the target
+- known index range
+- whether our target is above or below the distribution mean
+
+Example state: "12:up:0:50:True"
 
 --
 
@@ -362,7 +380,7 @@ from search import *
 import numpy as np
 
 simulator = SearchSimulation()
-observations = simulator.observations(100000, 20)
+observations = simulator.observations(50000, 20)
 mark = MarkovAgent(observations)
 mark.learn()
 
@@ -389,10 +407,10 @@ for i in range(10000):
   target = random.choice(array)
 
   # generate observation for search of each type
-  binary = simulator.observation(15, supplied_search = BinarySearch(array, target))
-  linear = simulator.observation(15, supplied_search = LinearSearch(array, target))
-  rando = simulator.observation(15, supplied_search = RandomSearch(array, target))
-  ai = simulator.observation(15, supplied_search = AISearch(array, target))
+  binary = simulator.observation(BinarySearch(array, target))
+  linear = simulator.observation(LinearSearch(array, target))
+  rando = simulator.observation(RandomSearch(array, target))
+  ai = simulator.observation(AISearch(array, target))
 
   # append result
   binary_results.append(len(binary['state_transitions']))
