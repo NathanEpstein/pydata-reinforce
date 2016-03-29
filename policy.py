@@ -12,7 +12,7 @@ class PolicyParser:
     state_values = np.zeros(self.state_count)
 
     GAMMA = 0.9
-    ITERATIONS = 50
+    ITERATIONS = 125
     for i in range(ITERATIONS):
       print "iteration: {0} / {1}".format(i + 1, ITERATIONS)
 

@@ -378,33 +378,33 @@ class AISearch(Search):
 ### Comparison
 
 ```python
-
 binary_results = []
 linear_results = []
 random_results = []
 ai_results = []
 
 for i in range(10000):
-  # generate the array and target value
-  array = simulator._random_sorted_array(20)
+  # create array and target value
+  array = simulator._random_sorted_array(15)
   target = random.choice(array)
+
   # generate observation for search of each type
-  binary = simulator.observation(20, supplied_search = BinarySearch(array, target))
-  linear = simulator.observation(20, supplied_search = LinearSearch(array, target))
-  rando = simulator.observation(20, supplied_search = RandomSearch(array, target))
-  ai = simulator.observation(20, supplied_search = AISearch(array, target))
+  binary = simulator.observation(15, supplied_search = BinarySearch(array, target))
+  linear = simulator.observation(15, supplied_search = LinearSearch(array, target))
+  rando = simulator.observation(15, supplied_search = RandomSearch(array, target))
+  ai = simulator.observation(15, supplied_search = AISearch(array, target))
+
   # append result
   binary_results.append(len(binary['state_transitions']))
   linear_results.append(len(linear['state_transitions']))
   random_results.append(len(rando['state_transitions']))
   ai_results.append(len(ai['state_transitions']))
 
-# display results
-print "Average binary search length: {0}".format(np.mean(binary_results)) # 3.9984
-print "Average linear search length: {0}".format(np.mean(linear_results)) # 7.2012
-print "Average random search length: {0}".format(np.mean(random_results)) # 19.4402
-print "Average AI search length: {0}".format(np.mean(ai_results)) # 4.2267
-
+# display average results
+print "Average binary search length: {0}".format(np.mean(binary_results)) # 3.6469
+print "Average linear search length: {0}".format(np.mean(linear_results)) # 5.5242
+print "Average random search length: {0}".format(np.mean(random_results)) # 14.2132
+print "Average AI search length: {0}".format(np.mean(ai_results)) # 3.1095
 
 ```
 

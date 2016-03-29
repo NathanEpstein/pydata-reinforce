@@ -13,6 +13,7 @@ class Search:
     self._update_direction()
     self.floor = 0
     self.ceil = len(self.array)
+    self.high_target = True if (self.target > 1) else False
 
   def state(self):
     if (self.array[self.location] == self.target):
@@ -21,7 +22,8 @@ class Search:
       str(self.location),
       self.direction,
       str(self.floor),
-      str(self.ceil)
+      str(self.ceil),
+      str(self.high_target)
     ]
     return ':'.join(features)
 
@@ -128,6 +130,10 @@ class SearchSimulation:
     return search
 
   def _random_sorted_array(self, length):
-    random_ints = random.sample(range(0, 1000), length)
-    random_ints.sort()
-    return random_ints
+    random_values = []
+    for i in range(length):
+      value = round(random.expovariate(1), 5)
+      random_values.append(value)
+
+    random_values.sort()
+    return random_values
