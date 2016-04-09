@@ -3,6 +3,7 @@ author:
   name: Nathan Epstein
   twitter: epstein_n
   url: http://nepste.in
+  email: _@nepste.in
 
 --
 
