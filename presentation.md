@@ -261,14 +261,15 @@ class MarkovAgent:
     P = self.transition_parser.transition_probabilities()
 
     self.policy = self.policy_parser.policy(P, R)
-
 ```
 --
 
 # Sample Application
 
---
 
+##"I believe the robots are our future, teach them well and let them lead the way."
+
+--
 ### Climbing
 
 - 5 states: bottom, low, middle, high, top.
@@ -381,7 +382,7 @@ from search import *
 import numpy as np
 
 simulator = SearchSimulation()
-observations = simulator.observations(50000, 20)
+observations = simulator.observations(50000, 15)
 mark = MarkovAgent(observations)
 mark.learn()
 
